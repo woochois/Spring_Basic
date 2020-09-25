@@ -1,4 +1,4 @@
-package com.ch.ch06;
+package com.ch.mvc2;
 
 import java.util.ArrayList;
 import java.util.List;

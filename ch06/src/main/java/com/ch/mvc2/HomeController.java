@@ -1,4 +1,4 @@
-package com.ch.ch06;
+package com.ch.mvc2;
 
 import java.text.DateFormat;
 import java.util.Date;

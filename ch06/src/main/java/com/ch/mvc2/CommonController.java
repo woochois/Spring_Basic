@@ -1,4 +1,4 @@
-package com.ch.ch06;
+package com.ch.mvc2;
 
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
