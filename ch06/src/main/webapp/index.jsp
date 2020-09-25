@@ -13,7 +13,9 @@
 		// location.href="color" // 배경색이 무지개 색깔 중에 하나를 보여
 		// location.href="home"
 		/* location.href="memberForm" */
-		location.href="calForm"
+		/* location.href="calForm" */
+		/* location.href="sendMember.json" */
+		location.href="sendList"
 	</script>
 </body>
 </html>
