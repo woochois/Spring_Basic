@@ -7,10 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<script type="text/javascript">
-	/* location.href="uploadForm.do" */
-	/* location.href="aa.do" */
-	location.href="loginForm.do"
-</script>
+대박
 </body>
 </html>

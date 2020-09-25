@@ -22,7 +22,15 @@
 	</beans:bean>
 	
 	<context:component-scan base-package="com.ch.fileupload" />
-	
-	
+	<beans:bean id="si" class="com.ch.fileupload.SampleInterceptor"></beans:bean>
+	<beans:bean id="lc" class="com.ch.fileupload.LoginCheck"></beans:bean>
+	<interceptors>
+		<interceptor>
+			<!-- <mapping path="/aa.do"/> -->
+			<!-- <beans:ref bean="si"/> -->
+			<mapping path="/uploadForm.do"/>
+				<beans:ref bean="lc"/>
+		</interceptor>
+	</interceptors>
 	
 </beans:beans>
