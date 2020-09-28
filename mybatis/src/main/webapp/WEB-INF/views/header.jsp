@@ -9,6 +9,6 @@
 	.err { color: red; font-weight: bold; }	
 </style>
 <c:set var="path" value="${pageContext.request.contextPath}"></c:set>
-<link href="${path}/css/bootstrap.min.css" rel="stylesheet">
-<script type="text/javascript" src="${path}/js/jquery.js"></script>
-<script type="text/javascript" src="${path}/js/bootstrap.min.js"></script>
+<link href="${path}/resources/css/bootstrap.min.css" rel="stylesheet">
+<script type="text/javascript" src="${path}/resources/js/jquery.js"></script>
+<script type="text/javascript" src="${path}/resources/js/bootstrap.min.js"></script>

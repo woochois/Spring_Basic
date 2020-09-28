@@ -39,11 +39,11 @@ public class MemberController {
 		 * return "idChk"; 
 	 * }
 	 */
-	@RequestMapping(value="idChk",produces="text/html;charset=utf-8")
+	@RequestMapping(value="idChk",produces="text/html; charset=utf-8")
 	@ResponseBody  // jsp프로그램을 이용하지 않고 바로 본문을 전달
 	public String idChk(String id) {
-		String msg = ""; 
-		Member member = ms.select(id); 
+		String msg = "";
+		Member member = ms.select(id);
 		if (member == null) msg="사용가능한 ID입니다"; 
 		else msg="이미 있으니 다른 ID를 사용하시오";
 		return msg;

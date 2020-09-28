@@ -17,14 +17,14 @@
 	<result property="fileName" column="fileName"/>
 </resultMap>
 <select id="select" parameterType="string" resultType="member">
-	select * from member3 where id=#{id}
+	select * from member4 where id=#{id}
 </select>
 <insert id="insert" parameterType="member">
-	insert into member3 values (#{id},#{email},#{password},
+	insert into member4 values (#{id},#{email},#{password},
 		#{name},#{fileName},'n',sysdate)
 </insert>
 <update id="update" parameterType="member">
-	update member3 set email=#{email}, password=#{password},
+	update member4 set email=#{email}, password=#{password},
 		name=#{name}
 		<!-- 파일을 변경하지 않으면 먼저 파일 사용 -->
 		<if test="fileName!=null">
@@ -33,7 +33,7 @@
 		where id=#{id}
 </update>
 <update id="delete" parameterType="string">
-	update member3 set del='y' where id=#{id}
+	update member4 set del='y' where id=#{id}
 </update>
 <insert id="insertphoto" parameterType="java.util.List">
 <!-- 	function get_photo_seq를 사용하지 않으면 sequence한 문장에서 
