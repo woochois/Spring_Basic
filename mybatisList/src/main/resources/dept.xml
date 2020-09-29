@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="deptns">
+<resultMap type="dept" id="deptResult">
+	<result property="deptno" column="deptno"/>
+	<result property="dname" column="dname"/>
+	<result property="loc" column="loc"/>
+</resultMap>
+<!-- 여러 개 일 때, resultMap 아니면 resultType -->
+<select id="deptList" resultMap="deptResult">
+	select * from dept order by deptno
+</select>
+</mapper>
+
+
+
