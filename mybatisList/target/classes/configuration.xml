@@ -5,8 +5,10 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 <configuration>
 	<typeAliases>
 		<typeAlias alias="dept" type="com.ch.mybatisList.model.Dept"/>
+		<typeAlias alias="emp" type="com.ch.mybatisList.model.Emp"/>
 	</typeAliases>
 	<mappers>
 		<mapper	resource="dept.xml" />
+		<mapper	resource="emp.xml" />
 	</mappers>
 </configuration>

@@ -25,4 +25,12 @@ public class DeptDaoImpl implements DeptDao {
 	public int insertDept(Dept dept) {
 		return sst.insert("deptns.insertDept", dept);
 	}
+
+	public int updateDept(Dept dept) {
+		return sst.update("deptns.updateDept", dept);
+	}
+
+	public int delete(int deptno) {
+		return sst.delete("deptns.deleteDept", deptno);
+	}
 }

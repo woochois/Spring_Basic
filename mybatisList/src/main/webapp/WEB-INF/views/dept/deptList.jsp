@@ -27,11 +27,12 @@
 				<c:forEach var="dept" items="${deptList }">
 					<tr>
 						<td>${dept.deptno }</td>
-						<td>${dept.dname }</td>
+						<td><a href="empList.html?deptno=${dept.deptno }" class="btn btn-sm btn-success">${dept.dname }</a></td>
 						<td>${dept.loc }</td>
-						<td><a href="updateDeptFrom.html?deptno=${dept.deptno }"
+						<td><a href="updateDeptForm.html?deptno=${dept.deptno }"
 							class="btn btn-sm btn-warning">수정</a></td>
-						<td></td>
+						<td><a href="deleteDept.html?deptno=${dept.deptno }"
+							class="btn btn-sm btn-danger">삭제</a></td>
 					</tr>
 				</c:forEach>
 			</c:if>

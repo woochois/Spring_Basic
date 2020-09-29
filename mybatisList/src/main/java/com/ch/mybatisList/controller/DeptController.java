@@ -25,7 +25,6 @@ public class DeptController {
 
 	@RequestMapping("insertDeptForm")
 	public String insertDeptForm() {
-
 		return "/dept/insertDeptForm";
 	}
 
@@ -50,8 +49,27 @@ public class DeptController {
 		else
 			result = -1;
 		model.addAttribute("result", result);
-		
 		return "/dept/insertDept";
 	}
-
+	
+	@RequestMapping("updateDeptForm")
+	public String updateDeptForm(int deptno, Model model) {
+		Dept dept = ds.select(deptno);
+		model.addAttribute("dept", dept);
+		return "/dept/updateDeptForm";
+	}
+	
+	@RequestMapping("updateDept")
+	public String updateDept(Dept dept, Model model) {
+		int result = ds.updateDept(dept);
+		model.addAttribute("result", result);
+		return "/dept/updateDept";
+	}
+	
+	@RequestMapping("deleteDept")
+	public String deleteDept(int deptno, Model model) {
+		int result  = ds.delete(deptno);
+		model.addAttribute("result", result);
+		return "/dept/deleteDept";
+	}
 }

@@ -12,4 +12,8 @@ public interface DeptService {
 
 	int insertDept(Dept dept);
 
+	int updateDept(Dept dept);
+
+	int delete(int deptno);
+
 }

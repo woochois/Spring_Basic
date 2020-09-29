@@ -22,7 +22,7 @@
 <body>
 	<div class="container" align="center">
 		<h2 class="text-primary">부서정보 입력</h2>
-		<form action="unsertDept.html" name="frm">
+		<form action="insertDept.html" name="frm">
 			<table class="table table-bordered">
 				<tr>
 					<td>부서코드</td>
@@ -41,7 +41,7 @@
 				</tr>
 				<tr>
 					<td colspan="2" align="center"><input type="submit"
-						class="btn btn-warning" /></td>
+						class="btn btn-warning" value="확인"/></td>
 				</tr>
 			</table>
 		</form>

@@ -9,7 +9,7 @@
 <c:if test="${result > 0 }">
 	<script type="text/javascript">
 		alert("입력 성공");
-		location.href-"deptList.html"
+		location.href="deptList.html";
 	</script>
 </c:if>
 <c:if test="${result == 0 }">

@@ -11,4 +11,8 @@ public interface DeptDao {
 	Dept select(int deptno);
 
 	int insertDept(Dept dept);
+
+	int updateDept(Dept dept);
+
+	int delete(int deptno);
 }

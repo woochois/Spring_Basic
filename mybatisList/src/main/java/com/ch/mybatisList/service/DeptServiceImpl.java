@@ -25,4 +25,12 @@ public class DeptServiceImpl implements DeptService{
 		return dd.insertDept(dept);
 	}
 
+	public int updateDept(Dept dept) {
+		return dd.updateDept(dept);
+	}
+	
+	public int delete(int deptno) {
+		return dd.delete(deptno);
+	}
+
 }

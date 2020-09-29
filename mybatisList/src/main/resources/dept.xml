@@ -2,24 +2,27 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="deptns">
-<resultMap type="dept" id="deptResult">
-	<result property="deptno" column="deptno"/>
-	<result property="dname" column="dname"/>
-	<result property="loc" column="loc"/>
-</resultMap>
-<!-- 
-	여러 개 일 때, resultMap 
-	하나일 때, resultType 
--->
-<select id="deptList" resultMap="deptResult">
-	select * from dept order by deptno
-</select>
-<select id="select" parameterType="integer" resultType="dept">
-	select * from dept where deptno = #{deptno}
-</select>
-<insert id="insertDept" parameterType="dept">
-	insert into dept values (#{deptno}, #{dname}, #{log})
-</insert>
+	<resultMap type="dept" id="deptResult">
+		<result property="deptno" column="deptno" />
+		<result property="dname" column="dname" />
+		<result property="loc" column="loc" />
+	</resultMap>
+	<!-- 여러 개 일 때, resultMap // 하나일 때, resultType -->
+	<select id="deptList" resultMap="deptResult">
+		select * from dept order by deptno
+	</select>
+	<select id="select" parameterType="integer" resultType="dept">
+		select * from dept where deptno = #{deptno}
+	</select>
+	<insert id="insertDept" parameterType="dept">
+		insert into dept values (#{deptno}, #{dname}, #{loc})
+	</insert>
+	<update id="updateDept" parameterType="dept">
+		update dept set dname = #{dname}, loc = #{loc} where deptno = #{deptno}
+	</update>
+	<update id="deleteDept" parameterType="integer">
+		delete from dept where deptno = #{deptno}
+	</update>
 </mapper>
 
 
