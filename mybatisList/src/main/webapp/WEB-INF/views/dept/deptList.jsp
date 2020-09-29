@@ -9,7 +9,7 @@
 </head>
 <body>
 	<div class="container" align="center">
-		<h2>부서 목록</h2>
+		<h2 class="text-primary">부서 목록</h2>
 		<table class="table table-striped">
 			<tr>
 				<td>부서 코드</td>

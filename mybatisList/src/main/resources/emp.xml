@@ -12,6 +12,15 @@
 		<result property="comm" column="comm" />
 		<result property="deptno" column="deptno" />
 	</resultMap>
+	<select id="empList" parameterType="integer" resultMap="empResult">
+		select * from emp where deptno = #{deptno} order by empno
+	</select>
+	<select id="empSelect" parameterType="integer" resultType="emp">
+		select * from emp where empno = #{empno}
+	</select>
+	<select id="empAllList" resultMap="empResult">
+		select * from emp order by ename
+	</select>
 </mapper>
 
 

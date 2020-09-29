@@ -3,6 +3,7 @@ package com.ch.mybatisList.service;
 import java.util.List;
 
 import com.ch.mybatisList.model.Dept;
+import com.ch.mybatisList.model.Emp;
 
 public interface DeptService {
 

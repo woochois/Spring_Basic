@@ -8,4 +8,8 @@ public interface EmpService {
 
 	List<Emp> empList(int deptno);
 
+	Emp empSelect(int empno);
+
+	List<Emp> empAllList();
+
 }
