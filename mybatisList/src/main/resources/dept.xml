@@ -7,10 +7,19 @@
 	<result property="dname" column="dname"/>
 	<result property="loc" column="loc"/>
 </resultMap>
-<!-- 여러 개 일 때, resultMap 아니면 resultType -->
+<!-- 
+	여러 개 일 때, resultMap 
+	하나일 때, resultType 
+-->
 <select id="deptList" resultMap="deptResult">
 	select * from dept order by deptno
 </select>
+<select id="select" parameterType="integer" resultType="dept">
+	select * from dept where deptno = #{deptno}
+</select>
+<insert id="insertDept" parameterType="dept">
+	insert into dept values (#{deptno}, #{dname}, #{log})
+</insert>
 </mapper>
 
 

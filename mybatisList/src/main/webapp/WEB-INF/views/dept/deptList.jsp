@@ -29,12 +29,15 @@
 						<td>${dept.deptno }</td>
 						<td>${dept.dname }</td>
 						<td>${dept.loc }</td>
+						<td><a href="updateDeptFrom.html?deptno=${dept.deptno }"
+							class="btn btn-sm btn-warning">수정</a></td>
+						<td></td>
 					</tr>
 				</c:forEach>
 			</c:if>
 		</table>
-		<a class="btn btn-info">부서 정보 입력</a>
-		<a class="btn btn-default">전 직원 목록</a>
+		<a href="insertDeptForm.html" class="btn btn-info">부서 정보 입력</a> <a
+			class="btn btn-default">전 직원 목록</a>
 	</div>
 </body>
 </html>

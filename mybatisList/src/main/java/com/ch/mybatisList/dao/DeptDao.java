@@ -8,4 +8,7 @@ public interface DeptDao {
 
 	List<Dept> list();
 
+	Dept select(int deptno);
+
+	int insertDept(Dept dept);
 }

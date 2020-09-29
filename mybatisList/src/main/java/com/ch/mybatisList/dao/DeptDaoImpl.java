@@ -16,4 +16,13 @@ public class DeptDaoImpl implements DeptDao {
 	public List<Dept> list() {
 		return sst.selectList("deptns.deptList");
 	}
+
+	public Dept select(int deptno) {
+		// TODO Auto-generated method stub
+		return sst.selectOne("deptns.select", deptno);
+	}
+	
+	public int insertDept(Dept dept) {
+		return sst.insert("deptns.insertDept", dept);
+	}
 }

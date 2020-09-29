@@ -8,4 +8,8 @@ public interface DeptService {
 
 	List<Dept> list();
 
+	Dept select(int deptno);
+
+	int insertDept(Dept dept);
+
 }

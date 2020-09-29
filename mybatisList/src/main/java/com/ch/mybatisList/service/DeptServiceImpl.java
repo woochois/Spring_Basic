@@ -14,6 +14,15 @@ public class DeptServiceImpl implements DeptService{
 	private DeptDao dd;
 
 	public List<Dept> list() {
-		return null;
+		return dd.list();
 	}
+
+	public Dept select(int deptno) {
+		return dd.select(deptno);
+	}
+
+	public int insertDept(Dept dept) {
+		return dd.insertDept(dept);
+	}
+
 }
