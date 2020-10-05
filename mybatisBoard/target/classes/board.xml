@@ -15,6 +15,7 @@
 		<result property="re_level" column="re_level" />
 		<result property="ip" column="ip" />
 		<result property="reg_date" column="reg_date" />
+		<result property="del" column="del" />
 	</resultMap>
 	<!-- 
 		parameter 는 들어오는 거. result 는 나가는 거. 

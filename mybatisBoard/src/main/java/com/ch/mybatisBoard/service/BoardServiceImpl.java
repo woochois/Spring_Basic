@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.ch.mybatisBoard.dao.BoardDao;
-import com.ch.mybatisBorad.model.Board;
+import com.ch.mybatisBoard.model.Board;
 
 @Repository
 public class BoardServiceImpl implements BoardService{

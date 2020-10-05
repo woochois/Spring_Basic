@@ -1,4 +1,4 @@
-package com.ch.mybatisBorad.model;
+package com.ch.mybatisBoard.model;
 
 import java.sql.Date;
 

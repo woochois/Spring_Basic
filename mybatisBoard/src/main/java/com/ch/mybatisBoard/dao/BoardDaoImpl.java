@@ -6,7 +6,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.ch.mybatisBorad.model.Board;
+import com.ch.mybatisBoard.model.Board;
 
 @Repository
 public class BoardDaoImpl implements BoardDao{
