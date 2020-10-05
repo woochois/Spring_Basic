@@ -37,8 +37,8 @@
 				</c:forEach>
 			</c:if>
 		</table>
-		<a href="insertDeptForm.html" class="btn btn-info">부서 정보 입력</a> <a
-			class="btn btn-default">전 직원 목록</a>
+		<a href="insertDeptForm.html" class="btn btn-info">부서 정보 입력</a> 
+		<a href="empAllList.html" class="btn btn-default">전 직원 목록</a>
 	</div>
 </body>
 </html>

@@ -32,5 +32,13 @@ public class EmpServiceImpl implements EmpService{
 	public int empUpdate(Emp emp) {
 		return ed.empUpdate(emp);
 	}
+
+	public int empDelete(int empno) {
+		return ed.empDelete(empno);
+	}
+
+	public List<Emp> empJoinList() {
+		return ed.empJoinList();
+	}
 	
 }

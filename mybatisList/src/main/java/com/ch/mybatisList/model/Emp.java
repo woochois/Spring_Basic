@@ -14,4 +14,7 @@ public class Emp { // DTO, VO 데이터를 묶어서 전달한다.
 	private int sal;
 	private int comm;
 	private int deptno;
+	
+	// join 용
+	private Dept dept;
 }

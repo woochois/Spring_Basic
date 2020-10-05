@@ -89,4 +89,20 @@ public class EmpController {
 		model.addAttribute("emp", emp);
 		return "/emp/empUpdate";
 	}
+	
+	@RequestMapping("empDelete")
+	public String empDelete(int empno, Model model) {
+		Emp emp = es.empSelect(empno);	// 삭제된 사번에 속한 부서 코드를 알기 위해 남아 있는 직원에 대한 정보를 제공
+		int result = es.empDelete(empno);
+		model.addAttribute("result", result);
+		model.addAttribute("emp", emp);
+		return "/emp/empDelete";
+	}
+	
+	@RequestMapping("empAllList")
+	public String empAllList(Model model) {
+		List<Emp> empList = es.empJoinList();
+		
+		return "/emp/empAllList";
+	}
 }

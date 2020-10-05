@@ -32,4 +32,12 @@ public class EmpDaoImpl implements EmpDao{
 	public int empUpdate(Emp emp) {
 		return sst.update("empns.empUpdate", emp);
 	}
+
+	public int empDelete(int empno) {
+		return sst.delete("empns.empDelete", empno);
+	}
+
+	public List<Emp> empJoinList() {
+		return sst.selectList("empns.empJoinList");
+	}
 }

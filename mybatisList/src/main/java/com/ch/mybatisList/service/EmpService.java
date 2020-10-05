@@ -16,4 +16,8 @@ public interface EmpService {
 
 	int empUpdate(Emp emp);
 
+	int empDelete(int empno);
+
+	List<Emp> empJoinList();
+
 }

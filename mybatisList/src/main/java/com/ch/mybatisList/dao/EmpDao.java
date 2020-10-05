@@ -16,4 +16,8 @@ public interface EmpDao {
 
 	int empUpdate(Emp emp);
 
+	int empDelete(int empno);
+
+	List<Emp> empJoinList();
+
 }
