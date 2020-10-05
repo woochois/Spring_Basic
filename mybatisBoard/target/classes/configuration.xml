@@ -2,9 +2,9 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
-		<typeAlias alias="dept" type="com.ch.mybatisList.model.Dept" />
+		<typeAlias alias="board" type="com.ch.mybatisBoard.model.Board" />
 	</typeAliases>
 	<mappers>
-		<mapper resource="dept.xml" />
+		<mapper resource="board.xml" />
 	</mappers>
 </configuration>

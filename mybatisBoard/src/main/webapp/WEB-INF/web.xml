@@ -46,6 +46,6 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>appServlet</servlet-name>
-		<url-pattern>*.do</url-pattern> <!-- *.html로 하면 RequestMapping이 작동을 안한다. -->
+		<url-pattern>*.do</url-pattern>
 	</servlet-mapping>
 </web-app>
