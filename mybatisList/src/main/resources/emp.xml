@@ -11,13 +11,17 @@
 		<result property="sal" column="sal" />
 		<result property="comm" column="comm" />
 		<result property="deptno" column="deptno" />
-		<collection property="dept" resultMap="deptResult"/>
+		<!-- collection은 반드시 맨 마지막에 위치 해야 한다. -->
+		<collection property="dept" resultMap="deptResult"/> 
 	</resultMap>
 	<resultMap type="dept" id="deptResult">
 		<result property="deptno" column="deptno" />
 		<result property="dname" column="dname" />
 		<result property="loc" column="loc" />
 	</resultMap>
+	<select id="empJoinList" resultMap="empResult">
+		select e.*, d.* from emp e, dept d where e.deptno=d.deptno order by e.deptno, e.sal desc
+	</select>
 	<select id="empList" parameterType="integer" resultMap="empResult">
 		select * from emp where deptno = #{deptno} order by empno
 	</select>
@@ -37,9 +41,6 @@
 	<delete id="empDelete" parameterType="integer">
 		delete from emp where empno=#{empno}
 	</delete>
-	<select id="empJoinList" resultMap="empResult">
-		select e.*, d.* from emp e, dept d where e.deptno=d.deptno order by deptno, sal desc
-	</select>
 </mapper>
 
 

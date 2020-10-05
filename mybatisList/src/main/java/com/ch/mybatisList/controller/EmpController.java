@@ -102,7 +102,7 @@ public class EmpController {
 	@RequestMapping("empAllList")
 	public String empAllList(Model model) {
 		List<Emp> empList = es.empJoinList();
-		
+		model.addAttribute("empList", empList);
 		return "/emp/empAllList";
 	}
 }
