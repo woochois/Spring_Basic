@@ -54,10 +54,6 @@
 					</td>
 				</tr>
 				<tr>
-					<td>관리자 사번</td>
-					<td><input type="number" name="mgr" required="required" /></td>
-				</tr>
-				<tr>
 					<td>급여</td>
 					<td><input type="number" name="sal" required="required" /></td>
 				</tr>

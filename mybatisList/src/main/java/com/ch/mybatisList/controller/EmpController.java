@@ -48,8 +48,14 @@ public class EmpController {
 	}
 
 	@RequestMapping("empInsert")
-	public String empInsert() {
-
+	public String empInsert(Emp emp, Model model) { // emp 화면 입력 데이터 (넘어옴)
+		int result = 0;
+		Emp emp2 = es.empSelect(emp.getEmpno()); // 중복 체크 했지만 혹시나 같은 사번 데이터를 입력하는 것을 방지하기 위함.
+		if (emp2 == null) {
+			result = es.empInsert(emp); // result는 입력에 성공한 개수
+		}else result = -1; // 중복된 사번 입력
+		model.addAttribute("result", result);
+		model.addAttribute("emp", emp);
 		return "/emp/empInsert";
 	}
 

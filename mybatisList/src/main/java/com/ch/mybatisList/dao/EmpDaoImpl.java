@@ -24,5 +24,8 @@ public class EmpDaoImpl implements EmpDao{
 	public List<Emp> empAllList() {
 		return sst.selectList("empns.empAllList");
 	}
-	
+
+	public int empInsert(Emp emp) {
+		return sst.insert("empns.empInsert", emp);
+	}
 }

@@ -12,4 +12,6 @@ public interface EmpService {
 
 	List<Emp> empAllList();
 
+	int empInsert(Emp emp);
+
 }

@@ -12,4 +12,6 @@ public interface EmpDao {
 
 	List<Emp> empAllList();
 
+	int empInsert(Emp emp);
+
 }

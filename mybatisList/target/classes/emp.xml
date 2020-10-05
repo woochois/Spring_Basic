@@ -21,6 +21,9 @@
 	<select id="empAllList" resultMap="empResult">
 		select * from emp order by ename
 	</select>
+	<insert id="empInsert" parameterType="emp"> <!-- 입력, 수정, 삭제에서는 리턴타입이 필요없다. -->
+		insert into emp values (#{empno}, #{ename}, #{job}, #{mgr}, #{hiredate}, #{sal}, #{comm}, #{deptno})
+	</insert>
 </mapper>
 
 
