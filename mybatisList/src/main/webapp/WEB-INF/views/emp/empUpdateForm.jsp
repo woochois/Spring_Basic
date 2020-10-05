@@ -29,7 +29,7 @@
 					<td>관리자 사번</td>
 					<td><select name="mgr">
 						<!-- 현재 관리자가 누구인 지 알려주고 수정할 지 여부를 결정 -->
-							<c:forEach var="emp" items="${empAllList }">
+							<c:forEach var="e" items="${empAllList }">
 								<c:if test="${emp.mgr == e.empno }">
 									<option value="${e.empno }" selected="selected">${e.ename}(${e.empno })</option>
 								</c:if>
