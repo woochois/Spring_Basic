@@ -8,4 +8,10 @@ public interface BoardDao {
 
 	List<Board> list();
 
+	int insert(Board board);
+
+	void updateReadCount(int num);
+
+	Board select(int num);
+
 }

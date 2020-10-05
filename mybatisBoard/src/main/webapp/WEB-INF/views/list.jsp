@@ -31,7 +31,14 @@
 							<td colspan="4">삭제된 글입니다.</td>
 						</c:if>
 						<c:if test="${board.del != 'y' }">
-							<td>${board.subject }</td>
+							<td title="${board.content }">
+								<c:if test="${board.readcount > 30 }">
+									<img src="images/hot.gif" alt="" />
+								</c:if>
+								<a href="view.do?num=${board.num }" class="btn btn-sm btn-success">
+									${board.subject }
+								</a>
+							</td>
 							<td>${board.writer }</td>
 							<td>${board.reg_date }</td>
 							<td>${board.readcount }</td>

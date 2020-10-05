@@ -16,4 +16,16 @@ public class BoardServiceImpl implements BoardService{
 	public List<Board> list() {
 		return bd.list();
 	}
+
+	public int insert(Board board) {
+		return bd.insert(board);
+	}
+
+	public void updateReadCount(int num) {
+		bd.updateReadCount(num);
+	}
+
+	public Board select(int num) {
+		return bd.select(num);
+	}
 }

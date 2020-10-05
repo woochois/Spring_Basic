@@ -2,6 +2,8 @@ package com.ch.mybatisBoard.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,5 +33,28 @@ public class BoardController {
 		model.addAttribute("re_step", re_step);
 		model.addAttribute("num", num);
 		return "insertForm";
+	}
+	
+	@RequestMapping("insert")
+	public String insert(Board board, Model model, HttpServletRequest request) {
+		board.setIp(request.getLocalAddr()); // ip setting
+		int result = bs.insert(board);
+		model.addAttribute("result", result);
+		return "insert";
+	}
+	
+	@RequestMapping("view")
+	public String view(int num, Model model) {
+		bs.updateReadCount(num);
+		Board board = bs.select(num);
+		model.addAttribute("board", board);
+		return "view";
+	}
+	
+	@RequestMapping("updateForm")
+	public String updateForm(int num, Model model) {
+		Board board = bs.select(num);
+		model.addAttribute("board", board);
+		return "updateForm";
 	}
 }

@@ -16,4 +16,16 @@ public class BoardDaoImpl implements BoardDao{
 	public List<Board> list() {
 		return sst.selectList("boardns.list");
 	}
+
+	public int insert(Board board) {
+		return sst.insert("boardns.insert", board);
+	}
+
+	public void updateReadCount(int num) {
+		sst.update("boardns.updateReadCount", num);
+	}
+
+	public Board select(int num) {
+		return sst.selectOne("boardns.select", num);
+	}
 }

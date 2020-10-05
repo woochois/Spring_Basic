@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript">
-	fuction chk(){
+	function chk(){
 		if (frm.password.value != frm.password2.value){
 			alert("암호와 암호 확인이 다릅니다.");
 			frm.password.value = "";
@@ -61,7 +61,7 @@
 				<tr>
 					<td>내용</td>
 					<td>
-						<textarea rows="5" cols="49" required="required"></textarea>
+						<textarea rows="5" cols="49" required="required" name="content"></textarea>
 					</td>
 				</tr>
 				<tr>
