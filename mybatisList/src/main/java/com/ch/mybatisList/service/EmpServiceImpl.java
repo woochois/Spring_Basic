@@ -28,5 +28,9 @@ public class EmpServiceImpl implements EmpService{
 	public int empInsert(Emp emp) {
 		return ed.empInsert(emp);
 	}
+
+	public int empUpdate(Emp emp) {
+		return ed.empUpdate(emp);
+	}
 	
 }

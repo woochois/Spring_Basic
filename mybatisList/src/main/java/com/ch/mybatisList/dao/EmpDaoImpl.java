@@ -28,4 +28,8 @@ public class EmpDaoImpl implements EmpDao{
 	public int empInsert(Emp emp) {
 		return sst.insert("empns.empInsert", emp);
 	}
+
+	public int empUpdate(Emp emp) {
+		return sst.update("empns.empUpdate", emp);
+	}
 }

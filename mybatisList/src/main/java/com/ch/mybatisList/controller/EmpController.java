@@ -70,4 +70,23 @@ public class EmpController {
 			msg = "중복된 사번입니다.";
 		return msg;
 	}
+	
+	@RequestMapping("empUpdateForm")
+	public String empUpdateForm(int empno, Model model) {
+		Emp emp = es.empSelect(empno);
+		List<Dept> deptList = ds.list(); // 부서 코드 선택
+		List<Emp> empAllList = es.empAllList(); // 관리자 선택
+		model.addAttribute("deptList", deptList);
+		model.addAttribute("empAllList", empAllList);
+		model.addAttribute("emp", emp);
+		return "/emp/empUpdateForm";
+	}
+	
+	@RequestMapping("empUpdate")
+	public String empUpdate(Emp emp, Model model) {
+		int result = es.empUpdate(emp);
+		model.addAttribute("result", result);
+		model.addAttribute("emp", emp);
+		return "/emp/empUpdate";
+	}
 }

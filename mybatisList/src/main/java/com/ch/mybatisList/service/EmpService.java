@@ -14,4 +14,6 @@ public interface EmpService {
 
 	int empInsert(Emp emp);
 
+	int empUpdate(Emp emp);
+
 }

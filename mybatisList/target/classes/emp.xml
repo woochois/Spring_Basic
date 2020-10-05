@@ -21,9 +21,13 @@
 	<select id="empAllList" resultMap="empResult">
 		select * from emp order by ename
 	</select>
-	<insert id="empInsert" parameterType="emp"> <!-- 입력, 수정, 삭제에서는 리턴타입이 필요없다. -->
+	<!-- 입력, 수정, 삭제에서는 리턴타입이 필요없다. -->
+	<insert id="empInsert" parameterType="emp"> 
 		insert into emp values (#{empno}, #{ename}, #{job}, #{mgr}, #{hiredate}, #{sal}, #{comm}, #{deptno})
 	</insert>
+	<update id="empUpdate" parameterType="emp">
+		update emp set ename=#{ename}, job=#{job}, mgr=#{mgr}, hiredate=#{hiredate}, sal=#{sal}, comm=#{comm}, deptno=#{deptno} where empno=#{empno}
+	</update>
 </mapper>
 
 

@@ -14,4 +14,6 @@ public interface EmpDao {
 
 	int empInsert(Emp emp);
 
+	int empUpdate(Emp emp);
+
 }
