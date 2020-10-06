@@ -9,7 +9,7 @@
 <body>
 	<script type="text/javascript">
 		location.href = "list.do";
-		//location.href = "insertBoard.do";
+		//location.href = "insertBoard.do"; // 더미 데이터 삽입
 	</script>
 </body>
 </html>

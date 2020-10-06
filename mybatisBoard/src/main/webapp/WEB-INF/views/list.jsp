@@ -31,11 +31,19 @@
 							<td colspan="4">삭제된 글입니다.</td>
 						</c:if>
 						<c:if test="${board.del != 'y' }">
-							<td title="${board.content }"><c:if
-									test="${board.readcount > 30 }">
+							<td title="${board.content }">
+								<!-- 답변 글이면 -->
+								<c:if test="${board.re_level > 0 }">
+									<!-- 레벨 만큼 들여쓰기 -->
+									<img src="images/level.gif" alt="" height="5" width="${board.re_level * 10 }" />
+									<img src="images/re.gif" alt="" />
+								</c:if>
+							
+								<c:if test="${board.readcount > 30 }">
 									<img src="images/hot.gif" alt="" />
-								</c:if> <a href="view.do?num=${board.num }&pageNum=${pb.currentPage}"
-								class="btn btn-sm btn-success"> ${board.subject } </a></td>
+								</c:if> 
+								<a href="view.do?num=${board.num }&pageNum=${pb.currentPage}" class="btn btn-sm btn-success"> ${board.subject } </a>
+							</td>
 							<td>${board.writer }</td>
 							<td>${board.reg_date }</td>
 							<td>${board.readcount }</td>

@@ -36,4 +36,16 @@ public class BoardServiceImpl implements BoardService{
 	public int update(Board board) {
 		return bd.update(board);
 	}
+
+	public int delete(int num) {
+		return bd.delete(num);
+	}
+
+	public int maxNum() {
+		return bd.maxNum();
+	}
+
+	public void updateRe_step(Board board) {
+		bd.updateRe_step(board);		
+	}
 }

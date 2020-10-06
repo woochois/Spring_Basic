@@ -9,7 +9,7 @@
 		<result property="content" column="content" />
 		<result property="email" column="email" />
 		<result property="readcount" column="readcount" />
-		<result property="passwd" column="passwd" />
+		<result property="password" column="passwd" />
 		<result property="ref" column="ref" />
 		<result property="re_step" column="re_step" />
 		<result property="re_level" column="re_level" />
@@ -22,7 +22,8 @@
 	<select id="list" parameterType="map" resultType="board">
 		select * from
 		(select a.*, rownum rn from
-		(select * from board order by num desc) a )
+		<!-- order by num desc -->
+		(select * from board order by ref desc, re_step) a )
 		where rn between #{startRow} and
 		#{endRow}
 	</select>
@@ -34,17 +35,22 @@
 	<select id="getTotal" resultType="integer">
 		select count(*) from board
 	</select>
+	
+	<select id="maxNum" resultType="integer">
+		<!-- ref와 num이 같을 수도 있고 다를 수도 있어서 별도로 생성해준다. -->
+		select nvl(max(num), 0) + 1 from board
+	</select>
 
 	<insert id="insert" parameterType="board">
 		<!-- 오라클은 시퀀스를 써야하는데 시퀀스를 쓰기 싫을 경우에 쓰는 셀렉트 키 -->
 		<!-- keyProperty 값에 구문 값이 저장됨. -->
-		<selectKey keyProperty="num" order="BEFORE"
+<!-- 		<selectKey keyProperty="num" order="BEFORE"
 			resultType="integer">
 			select nvl(max(num), 0) + 1 from board
-		</selectKey>
+		</selectKey> -->
 		<!-- 답변 글이 아니면 num과 ref는 같은 값 -->
 		insert into board values (#{num}, #{writer}, #{subject}, #{content},
-		#{email}, 0, #{password}, #{num}, #{re_step}, #{re_level}, #{ip},
+		#{email}, 0, #{password}, #{ref}, #{re_step}, #{re_level}, #{ip},
 		sysdate, 'n')
 	</insert>
 
@@ -58,6 +64,14 @@
 		where num = #{num}
 	</update>
 
+	<update id="delete" parameterType="integer">
+		update board set del = 'y' where num = #{num}
+	</update>
+	
+	<update id="updateRe_step" parameterType="board">
+		update board set re_step = re_step + 1 
+		where ref = #{ref} and re_step > #{re_step}
+	</update>
 </mapper>
 
 

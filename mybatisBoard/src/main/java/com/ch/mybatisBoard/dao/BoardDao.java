@@ -18,4 +18,10 @@ public interface BoardDao {
 
 	int update(Board board);
 
+	int delete(int num);
+
+	int maxNum();
+
+	void updateRe_step(Board board);
+
 }

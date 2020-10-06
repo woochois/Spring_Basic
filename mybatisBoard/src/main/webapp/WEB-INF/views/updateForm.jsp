@@ -21,9 +21,9 @@
 	<div class="container" align="center">
 		<h2 class="text-primary">게시글 입력</h2>
 		<form action="update.do" method="post" name="frm" onsubmit="return chk()">
-			<input type="text" name="num" value="${board.num }" />
-			<input type="text" name="password" value="${board.passwd }" />
-			<input type="text" name="pageNum" value="${pageNum }" />
+			<input type="hidden" name="num" value="${board.num }" />
+			<input type="hidden" name="password" value="${board.passwd }" />
+			<input type="hidden" name="pageNum" value="${pageNum }" />
 			<table class="table table-hover table-bordered">
 				<tr>
 					<td>제목</td>

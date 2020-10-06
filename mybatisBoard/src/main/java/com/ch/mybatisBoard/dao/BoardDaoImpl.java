@@ -41,4 +41,16 @@ public class BoardDaoImpl implements BoardDao{
 	public int update(Board board) {
 		return sst.update("boardns.update", board);
 	}
+
+	public int delete(int num) {
+		return sst.update("boardns.delete", num);
+	}
+	
+	public int maxNum() {
+		return sst.selectOne("boardns.maxNum");
+	}
+
+	public void updateRe_step(Board board) {
+		sst.update("boardns.updateRe_step", board);
+	}
 }
