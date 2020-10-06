@@ -25,6 +25,7 @@
 			<input type="hidden" name="ref" value="${ref }" />
 			<input type="hidden" name="re_level" value="${re_level }" />
 			<input type="hidden" name="re_step" value="${re_step }" />
+			<input type="hidden" name="pageNum" value="${pageNum }" />
 			<table class="table table-hover table-bordered">
 				<tr>
 					<td>제목</td>

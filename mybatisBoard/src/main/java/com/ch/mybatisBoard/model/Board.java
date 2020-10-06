@@ -12,7 +12,7 @@ public class Board {
 	private String content;
 	private String email;
 	private int readcount;
-	private String password;
+	private String passwd;
 	private int ref;
 	private int re_step;
 	private int re_level;

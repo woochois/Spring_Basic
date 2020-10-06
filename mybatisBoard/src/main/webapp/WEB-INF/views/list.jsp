@@ -31,14 +31,11 @@
 							<td colspan="4">삭제된 글입니다.</td>
 						</c:if>
 						<c:if test="${board.del != 'y' }">
-							<td title="${board.content }">
-								<c:if test="${board.readcount > 30 }">
+							<td title="${board.content }"><c:if
+									test="${board.readcount > 30 }">
 									<img src="images/hot.gif" alt="" />
-								</c:if>
-								<a href="view.do?num=${board.num }" class="btn btn-sm btn-success">
-									${board.subject }
-								</a>
-							</td>
+								</c:if> <a href="view.do?num=${board.num }&pageNum=${pb.currentPage}"
+								class="btn btn-sm btn-success"> ${board.subject } </a></td>
 							<td>${board.writer }</td>
 							<td>${board.reg_date }</td>
 							<td>${board.readcount }</td>
@@ -47,6 +44,46 @@
 				</c:forEach>
 			</c:if>
 		</table>
+		<div align="center">
+			<ul class="pagination">
+				<c:if test="${pb.startPage > pb.pagePerBlock }">
+					<li>
+						<a href="list.do?pageNum=1">
+							<span class="glyphicon glyphicon-backward"></span>
+						</a>
+					</li>
+					<li>
+						<a href="list.do?pageNum=${pb.startPage - 1 }">
+							<span class="glyphicon glyphicon-triangle-left"></span>
+						</a>
+					</li>
+				</c:if>
+				<c:forEach var="i" begin="${pb.startPage }" end="${pb.endPage }">
+					<c:if test="${i == pb.currentPage }">
+						<li class="active">
+							<a href="list.do?pageNum=${i }">${i }</a>
+						</li>
+					</c:if>
+					<c:if test="${i != pb.currentPage }">
+						<li>
+							<a href="list.do?pageNum=${i }">${i }</a>
+						</li>
+					</c:if>
+				</c:forEach>
+				<c:if test="${pb.endPage < pb.totalPage }">
+					<li>
+						<a href="list.do?pageNum=${pb.endPage + 1 }">
+							<span class="glyphicon glyphicon-triangle-right"></span>
+						</a>
+					</li>					
+					<li>
+						<a href="list.do?pageNum=${pb.totalPage }">
+							<span class="glyphicon glyphicon-forward"></span>
+						</a>
+					</li>
+				</c:if>
+			</ul>
+		</div>
 		<a href="insertForm.do" class="btn btn-info">게시글 입력</a>
 	</div>
 </body>

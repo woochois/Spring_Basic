@@ -40,10 +40,10 @@
 			</tr>
 			<tr>
 				<td colspan="2">
-					<a href="list.do" class="btn btn-info">게시글 목록</a>
-					<a href="updateForm.do?num=${board.num }" class="btn btn-warning">수정</a>
-					<a href="deleteForm.do?num=${board.num }" class="btn btn-danger">삭제</a>
-					<a href="insertForm.do?nm=${board.num }" class="btn btn-success">답글</a>
+					<a href="list.do?pageNum=${pageNum}" class="btn btn-info">게시글 목록</a>
+					<a href="updateForm.do?num=${board.num }&pageNum=${pageNum}" class="btn btn-warning">수정</a>
+					<a href="deleteForm.do?num=${board.num }&pageNum=${pageNum}" class="btn btn-danger">삭제</a>
+					<a href="insertForm.do?nm=${board.num }&pageNum=${pageNum}" class="btn btn-success">답글</a>
 				</td>
 			</tr>
 		</table>
