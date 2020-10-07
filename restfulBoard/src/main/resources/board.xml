@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="boardns">
+	<!-- parameter 는 들어오는 거. result 는 나가는 거. map 은 테이블에 있는 컬럼명이랑 테이블명 다를 때 같을 
+		때는 type -->
+	<!-- <select id="list" parameterType="map" resultType="board"> select * 
+		from (select a.*, rownum rn from order by num desc (select * from board order 
+		by ref desc, re_step) a ) where rn between #{startRow} and #{endRow} </select> -->
+
+	<select id="list" parameterType="board" resultType="board">
+		select * from
+		(select a.*, rownum rn from
+		<!-- order by num desc -->
+		(select * from board
+		<where>
+			<!-- # 은 값 // $ 는 변수 // 오라클에서 || 는 결합 -->
+			<if test="keyword != null and keyword !=  ''">
+				<if test="search == 'subcon">
+					subject like '%'|| #{keyword} ||'%' or
+					content like '%'|| #{keyword} ||'%'
+				</if>
+				<if test="search != 'subcon">
+					${search} like '%'|| #{keyword} ||'%'
+				</if>
+			</if>
+		</where>
+		order by ref desc, re_step) a )
+		where rn between #{startRow} and
+		#{endRow}
+	</select>
+
+	<select id="select" parameterType="board" resultType="board">
+		select *
+		from board where num = #{num}
+	</select>
+
+	<select id="getTotal" resultType="integer">
+		select count(*) from board
+		<where>
+			<!-- # 은 값 // $ 는 변수 // 오라클에서 || 는 결합 -->
+			<if test="keyword != null and keyword !=  ''">
+				<if test="search == 'subcon">
+					subject like '%'|| #{keyword} ||'%' or
+					content like '%'|| #{keyword} ||'%'
+				</if>
+				<if test="search != 'subcon">
+					${search} like '%'|| #{keyword} ||'%'
+				</if>
+			</if>
+		</where>
+	</select>
+
+	<select id="maxNum" resultType="integer">
+		<!-- ref와 num이 같을 수도 있고 다를 수도 있어서 별도로 생성해준다. -->
+		select nvl(max(num), 0) + 1 from board
+	</select>
+
+	<insert id="insert" parameterType="board">
+		<!-- 오라클은 시퀀스를 써야하는데 시퀀스를 쓰기 싫을 경우에 쓰는 셀렉트 키 -->
+		<!-- keyProperty 값에 구문 값이 저장됨. -->
+		<!-- <selectKey keyProperty="num" order="BEFORE" resultType="integer"> 
+			select nvl(max(num), 0) + 1 from board </selectKey> -->
+		<!-- 답변 글이 아니면 num과 ref는 같은 값 -->
+		insert into board values (#{num}, #{writer}, #{subject}, #{content},
+		#{email}, 0, #{password}, #{ref}, #{re_step}, #{re_level}, #{ip},
+		sysdate, 'n')
+	</insert>
+
+	<update id="updateReadCount">
+		update board set readcount = readcount + 1 where num
+		= #{num}
+	</update>
+
+	<update id="update" parameterType="board">
+		update board set subject =
+		#{subject}, writer = #{writer}, email = #{email}, content = #{content}
+		where num = #{num}
+	</update>
+
+	<update id="delete" parameterType="integer">
+		update board set del = 'y'
+		where num = #{num}
+	</update>
+
+	<update id="updateRe_step" parameterType="board">
+		update board set
+		re_step = re_step + 1
+		where ref = #{ref} and re_step > #{re_step}
+	</update>
+</mapper>
+
+
+
