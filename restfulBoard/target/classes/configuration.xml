@@ -3,8 +3,10 @@
 <configuration>
 	<typeAliases>
 		<typeAlias alias="board" type="com.ch.restfulBoard.model.Board" />
+		<typeAlias alias="rb" type="com.ch.restfulBoard.model.ReplyBoard" />
 	</typeAliases>
 	<mappers>
 		<mapper resource="board.xml" />
+		<mapper resource="rbd.xml" />
 	</mappers>
 </configuration>

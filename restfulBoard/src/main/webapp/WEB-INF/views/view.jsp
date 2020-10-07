@@ -8,7 +8,18 @@
 <title>Insert title here</title>
 <script type="text/javascript">
 	$(function() {
-		$('#boardListDisp').load('${path }/list/pageNum/${pageNum}');
+		$('#boardListDisp').load('${path}/list/pageNum/${pageNum}');
+		$('#rbdListDisp').load('${path}/replyList/bno/${board.num}');
+		$('#rInsert').click(
+			function(){
+			/* var sendData = 'bno=' + frm.b.vale + '&replyer=' + frm.replyer.value + '&replytext=' + frm.replytext.value; */
+				var sendData = $('#frm').serialize();
+				$.post('${path}/rInsert', sendData, function(data){
+					alert("댓글이 작성되었습니다.");
+					$('#rbdListDisp').html(data);
+					frm.replyText.value="";
+				});
+			});
 	});
 </script>
 </head>
@@ -47,6 +58,29 @@
 				</td>
 			</tr>
 		</table>
+		<form action="" name="frm" id="frm">
+			<input type="hidden" name="bno" value="${board.num }" />
+			<table class="table table-hover">
+				<caption>댓글 작성</caption>
+				<!-- 회원 게시판은 로그인한 사람의 아이디 또는 이름 -->
+				<tr>
+					<td>작성자</td>
+					<td>
+						<input type="text" name="reply" value="${board.writer }" size="4"/>
+					</td>
+				</tr>
+				<tr>
+					<td>댓글</td>
+					<td>
+						<textarea name="replytext" id="" cols="30" rows="3"></textarea>
+					</td>
+					<td colspan="2">
+						<input type="button" name="reply" value="댓글 입력" id="rInsert" size="4"/>
+					</td>
+				</tr>
+			</table>
+		</form>
+		<div id="rbdListDisp"></div>
 		<div id="boardListDisp"></div>
 	</div>
 </body>

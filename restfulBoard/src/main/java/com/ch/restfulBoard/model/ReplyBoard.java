@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 public class ReplyBoard {
 	private int rno;
-	private int pno;
+	private int bno;
 	private String replytext;
 	private String replyer;
 	private Date regdate;
