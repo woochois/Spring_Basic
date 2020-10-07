@@ -1,8 +1,6 @@
 package com.ch.mybatisBoard.dao;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,11 +13,15 @@ public class BoardDaoImpl implements BoardDao{
 	@Autowired
 	private SqlSessionTemplate sst;
 
-	public List<Board> list(int startRow, int endRow) {
-		Map<String, Integer> map = new HashMap<String, Integer>();
-		map.put("startRow", startRow);
-		map.put("endRow", endRow);
-		return sst.selectList("boardns.list", map);
+//	public List<Board> list(int startRow, int endRow) {
+//		Map<String, Integer> map = new HashMap<String, Integer>();
+//		map.put("startRow", startRow);
+//		map.put("endRow", endRow);
+//		return sst.selectList("boardns.list", map);
+//	}
+	
+	public List<Board> list(Board board) {
+		return sst.selectList("boardns.list", board);
 	}
 	
 	public int insert(Board board) {
@@ -34,8 +36,8 @@ public class BoardDaoImpl implements BoardDao{
 		return sst.selectOne("boardns.select", num);
 	}
 
-	public int getTotal() {
-		return sst.selectOne("boardns.getTotal");
+	public int getTotal(Board board) {
+		return sst.selectOne("boardns.getTotal", board);
 	}
 
 	public int update(Board board) {

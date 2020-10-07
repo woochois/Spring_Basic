@@ -6,7 +6,8 @@ import com.ch.mybatisBoard.model.Board;
 
 public interface BoardDao {
 
-	List<Board> list(int startRow, int endRow);
+//	List<Board> list(int startRow, int endRow);
+	List<Board> list(Board board);
 
 	int insert(Board board);
 
@@ -14,7 +15,7 @@ public interface BoardDao {
 
 	Board select(int num);
 
-	int getTotal();
+	int getTotal(Board board);
 
 	int update(Board board);
 

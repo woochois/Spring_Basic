@@ -56,12 +56,12 @@
 			<ul class="pagination">
 				<c:if test="${pb.startPage > pb.pagePerBlock }">
 					<li>
-						<a href="list.do?pageNum=1">
+						<a href="list.do?pageNum=1&search=${board.search}&keyword=${board.keyword}">
 							<span class="glyphicon glyphicon-backward"></span>
 						</a>
 					</li>
 					<li>
-						<a href="list.do?pageNum=${pb.startPage - 1 }">
+						<a href="list.do?pageNum=${pb.startPage - 1 }&search=${board.search}&keyword=${board.keyword}">
 							<span class="glyphicon glyphicon-triangle-left"></span>
 						</a>
 					</li>
@@ -69,29 +69,45 @@
 				<c:forEach var="i" begin="${pb.startPage }" end="${pb.endPage }">
 					<c:if test="${i == pb.currentPage }">
 						<li class="active">
-							<a href="list.do?pageNum=${i }">${i }</a>
+							<a href="list.do?pageNum=${i }&search=${board.search}&keyword=${board.keyword}">${i }</a>
 						</li>
 					</c:if>
 					<c:if test="${i != pb.currentPage }">
 						<li>
-							<a href="list.do?pageNum=${i }">${i }</a>
+							<a href="list.do?pageNum=${i }&search=${board.search}&keyword=${board.keyword}">${i }</a>
 						</li>
 					</c:if>
 				</c:forEach>
 				<c:if test="${pb.endPage < pb.totalPage }">
 					<li>
-						<a href="list.do?pageNum=${pb.endPage + 1 }">
+						<a href="list.do?pageNum=${pb.endPage + 1 }&search=${board.search}&keyword=${board.keyword}">
 							<span class="glyphicon glyphicon-triangle-right"></span>
 						</a>
 					</li>					
 					<li>
-						<a href="list.do?pageNum=${pb.totalPage }">
+						<a href="list.do?pageNum=${pb.totalPage }&search=${board.search}&keyword=${board.keyword}">
 							<span class="glyphicon glyphicon-forward"></span>
 						</a>
 					</li>
 				</c:if>
 			</ul>
 		</div>
+		<form action="list.do">
+			<input type="hidden" name="pageNum" value="1" />
+			<select name="search">
+			<!-- varStatus : index = 0부터 , count = 1부터 -->
+				<c:forTokens var="item" items="writer,subject,content,subcon" delims="," varStatus="i">
+					<c:if test="${board.search == item}">
+						<option value="${item }" selected="selected">${tit[i.index] }</option>
+					</c:if>
+					<c:if test="${board.search != item}">
+						<option value="${item }">${tit[i.index] }</option>  
+					</c:if>
+				</c:forTokens>
+			</select>
+			<input type="text" name="keyword" value="${board.keyword }"/>
+			<input type="submit" value="확인" />
+		</form>
 		<a href="insertForm.do" class="btn btn-info">게시글 입력</a>
 	</div>
 </body>

@@ -19,4 +19,13 @@ public class Board {
 	private String ip;
 	private Date reg_date;
 	private String del;
+	
+	// 페이징용
+	private int startRow;
+	private int endRow;
+	
+	// 검색용
+	private String search;
+	private String keyword;
+	
 }

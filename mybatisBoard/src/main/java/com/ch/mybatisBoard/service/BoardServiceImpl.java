@@ -13,8 +13,12 @@ public class BoardServiceImpl implements BoardService{
 	@Autowired
 	private BoardDao bd;
 
-	public List<Board> list(int startRow, int endRow) {
-		return bd.list(startRow, endRow);
+//	public List<Board> list(int startRow, int endRow) {
+//		return bd.list(startRow, endRow);
+//	}
+	
+	public List<Board> list(Board board){
+		return bd.list(board);
 	}
 
 	public int insert(Board board) {
@@ -29,8 +33,8 @@ public class BoardServiceImpl implements BoardService{
 		return bd.select(num);
 	}
 
-	public int getTotal() {
-		return bd.getTotal();
+	public int getTotal(Board board) {
+		return bd.getTotal(board);
 	}
 
 	public int update(Board board) {

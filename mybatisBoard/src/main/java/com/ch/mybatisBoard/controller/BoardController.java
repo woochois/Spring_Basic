@@ -19,19 +19,27 @@ public class BoardController {
 	private BoardService bs;
 
 	@RequestMapping("list")
-	public String list(String pageNum, Model model) {
+	public String list(Board board, String pageNum, Model model) {
 		int rowPerPage = 10;
 		// 페이지가 지정되지 않으면 1페이지를 보여줘라
 		if (pageNum == null || pageNum.equals(""))
 			pageNum = "1";
 
 		int currentPage = Integer.parseInt(pageNum);
-		int total = bs.getTotal();
+		int total = bs.getTotal(board);
 		int startRow = (currentPage - 1) * rowPerPage + 1;
 		int endRow = startRow + rowPerPage - 1;
-		List<Board> list = bs.list(startRow, endRow);
+		
+		board.setStartRow(startRow);
+		board.setEndRow(endRow);
+//		List<Board> list = bs.list(startRow, endRow);
+		// board 에는 search, keyword, startRow, endRow 포함
+		List<Board> list = bs.list(board);
 		PagingBean pb = new PagingBean(currentPage, rowPerPage, total);
+		String[] tit = {"작성자", "제목", "내용", "제목+내용"};
+		model.addAttribute("tit", tit);
 		model.addAttribute("list", list);
+		model.addAttribute("board", board);
 		model.addAttribute("pb", pb);
 		return "list";
 	}
